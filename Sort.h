@@ -1,3 +1,11 @@
+//Alex Rigl 
+//ID: 2300146 
+//Section: 2
+//Assignment: 6
+
+//Purpose:
+//Methods to perform selection sort, insertion sort, bubble sort, and quick sort and test the timing of those. 
+
 #include <iostream>
 #include <fstream>
 #include <time.h>
