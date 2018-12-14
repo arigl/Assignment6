@@ -1,4 +1,4 @@
-24
+24 // number of data points
 1
 4
 3
