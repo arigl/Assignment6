@@ -7,37 +7,37 @@ using namespace std;
 class Sort
 {
   public:
-    Sort(); // constructor 
-    ~Sort(); // deconstructor 
+    Sort(); // constructor
+    ~Sort(); // deconstructor
 
     void selectionSort(double arr[], int n);
     void insertSort(double arr[]);
     void bubbleSort(double myArray[]);
     void quickSort(double arr[], int low, int high);
 
-    // utilized for quick sort 
+    // used for quick sort
     void swap(double a, double b);
     int partition (double arr[], int low, int high);
-  
-    // used as a main method that executes all of the sorting algorithms 
+
+    // executes all the swaping algorithms
     void mainSort(string name);
 
-    // stores double arrays 
     double *temp;
     double *quickArr;
     double *insertArr;
     double *bubbleArr;
     double *selectionArr;
+
+    int length; // stores length of the array
 };
 
 Sort::Sort()
 {
-  // constructor 
+  // constructor
 }
 
 Sort::~Sort()
 {
-  // deconstructor 
   delete [] temp;
   delete [] quickArr;
   delete [] insertArr;
@@ -50,8 +50,8 @@ void Sort::quickSort(double arr[], int low, int high)
     if (low < high)
     {
         int pi = partition(arr, low, high);
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
+        quickSort(arr, low, pi - 1); // recursive function
+        quickSort(arr, pi + 1, high); // recursive function
     }
 }
 
@@ -80,8 +80,8 @@ int Sort::partition (double arr[], int low, int high)
 }
 
 void Sort::insertSort(double arr[]){
-  for (int j = 1; j < 10; ++j){
-    double temp = arr[j];
+  for (int j = 1; j < length; ++j){
+    double temp = arr[length];
     int k = j;
     while (k > 0 && arr[k-1] >= temp)
     {
@@ -94,9 +94,9 @@ void Sort::insertSort(double arr[]){
 
 void Sort::bubbleSort(double myArray[])
 {
-  for (int i; i < 10; ++i){
+  for (int i; i < length; ++i){
     int temp = 0;
-    for (int j = 1; j < 9; ++j){
+    for (int j = 1; j < length - 1; ++j){
       if (myArray[j] > myArray[j+1]){
         temp = myArray[j+1];
         myArray[j+1] = myArray[j];
@@ -126,14 +126,13 @@ void Sort::selectionSort(double arr[], int n){
 void Sort::mainSort(string file)
 {
   ifstream myFile;
-  int length;
   double data;
   string line;
-  clock_t t;
+  clock_t t; // for checking the time 
 
   myFile.open(file);
 
-  if (!myFile) {
+  if (!myFile) { // file checking
     cerr << "Unable to open file " << file << endl;;
     exit(1);
   }
