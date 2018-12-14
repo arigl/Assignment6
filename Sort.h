@@ -7,18 +7,22 @@ using namespace std;
 class Sort
 {
   public:
-    Sort();
-    ~Sort();
+    Sort(); // constructor 
+    ~Sort(); // deconstructor 
 
     void selectionSort(double arr[], int n);
     void insertSort(double arr[]);
     void bubbleSort(double myArray[]);
     void quickSort(double arr[], int low, int high);
 
+    // utilized for quick sort 
     void swap(double a, double b);
     int partition (double arr[], int low, int high);
+  
+    // used as a main method that executes all of the sorting algorithms 
     void mainSort(string name);
 
+    // stores double arrays 
     double *temp;
     double *quickArr;
     double *insertArr;
@@ -28,11 +32,12 @@ class Sort
 
 Sort::Sort()
 {
-
+  // constructor 
 }
 
 Sort::~Sort()
 {
+  // deconstructor 
   delete [] temp;
   delete [] quickArr;
   delete [] insertArr;
